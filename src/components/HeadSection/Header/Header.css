@@ -1,0 +1,34 @@
+
+.navbar {
+    display: flex;
+    background-color:lightsalmon;
+    padding: 15px;
+    justify-content: space-around;
+}
+.header-icon{
+    display: flex;
+    align-items: center;
+}
+
+.navbar a{
+    text-decoration: none;
+    margin-right: 20px;
+    
+}
+
+.navbar a:hover{
+    color:lightgrey;
+}
+
+.logOut-btn{
+    background-color:lightsalmon;
+    border: none;
+    color: white;
+} 
+
+/* @media only screen and (max-width: 688px) {
+   
+}
+@media only screen and (min-width: 688px) and (max-width: 1024px) {
+    
+} */

@@ -1,0 +1,13 @@
+.footer{
+    background-color: lightsalmon;
+}
+.footer-items{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    padding: 30px;
+}
+
+.footer-items h3{
+    font-size: 25px;
+    font-weight: 700;
+}
