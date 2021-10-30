@@ -7,3 +7,19 @@
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 10px;
 }
+
+.confirm-btn, .remove-btn{
+    border-radius: 20px;
+    padding: 5px 10px;
+    width: 45%;
+}
+.confirm-btn{
+    background-color: gold;
+}
+.remove-btn{
+    background-color: red;
+}
+.display-btn{
+    display: flex;
+    justify-content: space-around;
+}

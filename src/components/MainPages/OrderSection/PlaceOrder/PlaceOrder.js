@@ -5,6 +5,7 @@ const PlaceOrder = () => {
     const {orderId} = useParams();
     const [service, setService] = useState({});
     const {url, name, description} = service;
+   const status = 'pending';
     
     console.log(orderId);
 
@@ -15,7 +16,7 @@ const PlaceOrder = () => {
     }, [])
 
 const handlePlaceOrder = (e) => {
-    const processingOrder = {url, name, description};
+    const processingOrder = {url, name, description, status};
     fetch('http://localhost:5000/orders', {
         method: 'POST',
         headers: {

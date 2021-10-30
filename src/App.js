@@ -5,6 +5,7 @@ import Footer from './components/HeadSection/Footer/Footer';
 import Header from './components/HeadSection/Header/Header';
 import AddNewService from './components/MainPages/AllServices/AddNewService/AddNewService';
 import Home from './components/MainPages/Home/Home';
+import ManageAllOrders from './components/MainPages/OrderSection/ManageAllOrders/ManageAllOrders';
 import MyOrders from './components/MainPages/OrderSection/MyOrders/MyOrders';
 import PlaceOrder from './components/MainPages/OrderSection/PlaceOrder/PlaceOrder'
 import Login from './components/Resistration/Login/Login';
@@ -33,8 +34,11 @@ function App() {
         <PrivateRoute path="/placeOrder/:orderId">
           <PlaceOrder></PlaceOrder>
         </PrivateRoute>
-        <Route pate="/myorders">
+        <Route exact path="/myorders">
           <MyOrders></MyOrders>
+        </Route>
+        <Route path="/manageAllOrders">
+          <ManageAllOrders></ManageAllOrders>
         </Route>
       </Switch>
 

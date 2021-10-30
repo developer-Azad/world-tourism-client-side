@@ -1,9 +1,23 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import './Orders.css';
 
-const Orders = () => {
+const Orders = ({order}) => {
+    const {name, description, url } = order;
+
+    useEffect( () => {
+        fetch('')
+    }, [])
+
+const handleConfirm = () => {
+
+}
+
+
+
     return (
         <div>
             <h2>orders</h2>
+            
         </div>
     );
 };

@@ -1,16 +1,15 @@
 import React, { useEffect, useState } from 'react';
 
 const ManageAllOrders = () => {
-    const [orders, setOrders] = useState([]);
+    const [services, setServices] = useState([]);
     useEffect( () => {
-        fetch('')
+        fetch('http://localhost:5000/services')
         .then(res => res.json())
-        .then(data => setOrders(data))
+        .then(data => setServices(data))
     }, [])
 
     const handleCancelOrder = id => {
-        const url = ``;
-        console.log(url);
+        const url = `http://localhost:5000/services/${id}`;
         fetch(url, {
             method: 'DELETE'
         })
@@ -18,8 +17,8 @@ const ManageAllOrders = () => {
         .then(data => {
             if(data.deletedCount){
                 alert('Are you sure to cancel this order')
-            const restOrders = orders.filter(order => order._id !== id);
-            setOrders(restOrders);
+            const restOrders = services.filter(service => service._id !== id);
+            setServices(restOrders);
             }
         })
     }
@@ -29,10 +28,10 @@ const ManageAllOrders = () => {
             <h2>Manage All Orders</h2>
             <div>
                 {
-                    orders.map(order => <div
-                    key={order._id}>
-                        <h3>{order.name}</h3>
-                        <button onClick={handleCancelOrder(order._id)}>Cancel Order</button>
+                    services.map(service => <div
+                    key={service._id}>
+                        <h3>{service.name}</h3>
+                        <button onClick={handleCancelOrder(service._id)}>Cancel Order</button>
                     </div>)
                 }
             </div>
