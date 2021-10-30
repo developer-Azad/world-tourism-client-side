@@ -19,7 +19,7 @@ const Service = ({ service }) => {
             <p className="card-text">{description}</p>
           </div>
           <div className="text-center mt-3">
-          <button className="booking-btn font-semibold" onClick={handleBooking}>BOOK NOW</button>
+          <button className="booking-btn font-semibold mb-3" onClick={handleBooking}>BOOK NOW</button>
           </div>
         </div>
       </div>
