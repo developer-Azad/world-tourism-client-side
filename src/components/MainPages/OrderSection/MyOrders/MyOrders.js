@@ -47,7 +47,9 @@ const ManageServices = () => {
            }
         })
     }
-    const allorder = orders.filter(order => order.email === user.email)
+  
+        const allorder = orders.filter(order => order.email === user.email)
+   
 
     return (
         <div className="mx-10">

@@ -48,8 +48,10 @@ const PlaceOrder = () => {
             <div className="place-order">
             <div className="orders-container">
                     <img src={orders.url} alt="" />
-                    <h3>{orders.name}</h3>
+                    <div>
+                    <h3 className="text-3xl font-semibold mb-3">{orders.name}</h3>
                     <p>{orders.description}</p>
+                    </div>
                
             </div>
             </div>
@@ -58,7 +60,7 @@ const PlaceOrder = () => {
             <h2 className="text-3xl font-bold mb-3 text-center m-4">Place Your Order</h2>
             <div>
             <form className="form mb-3" onSubmit={handleSubmit(onSubmit)}>
-      <input {...register("firstName", { required: true, maxLength: 30 })} placeholder="Your name"/>
+      <input {...register("firstName", { required: true, maxLength: 50 })} placeholder="Your name" value={user.displayName}/>
       <br /><br />
       <input {...register("email" )} placeholder="Email" value={user.email} readOnly/>
       <br /><br />
