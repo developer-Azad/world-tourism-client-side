@@ -1,15 +1,11 @@
 import React from 'react';
-import { useHistory } from 'react-router';
-import './Service.css';
 
-const Service = ({ service }) => {
-    const {_id, name, description, url, price, rating} = service;
-    const history = useHistory();
+const Hotel = ({hotel}) => {
+    const {_id, name, description, url, price, rating} = hotel;
 
-    const handleBooking = () => {
-      history.push(`/placeOrder/${_id}`);
+    const handleDetails = () => {
+        
     }
-
     return (
         <div className="col">
         <div className="card h-100">
@@ -25,11 +21,11 @@ const Service = ({ service }) => {
             </div>
           </div>
           <div className="text-center mt-3">
-          <button className="booking-btn font-semibold mb-3" onClick={handleBooking}>BOOK NOW</button>
+          <button className="booking-btn font-semibold mb-3" onClick={handleDetails}>Details</button>
           </div>
         </div>
       </div>
     );
 };
 
-export default Service;
+export default Hotel;

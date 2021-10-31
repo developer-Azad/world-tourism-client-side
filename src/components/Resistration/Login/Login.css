@@ -1,15 +1,17 @@
-.login{
+.google-login{
     background-color: #a8eeff;
     color:black;
     text-align: center;
     padding-top: 20px;
     padding-bottom: 20px;
+    height: 300px;
 }
-.input-field{
-    width: 50%;
+.google{
+    width: 20%;
     border: none;
     padding: 5px 10px;
     border-radius: 5px;
+    background-color: gold;
 }
 .link-color{
     color:crimson;

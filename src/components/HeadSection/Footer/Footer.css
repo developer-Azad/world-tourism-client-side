@@ -1,13 +1,31 @@
 .footer{
-    background-color: lightsalmon;
+    background-color: rgb(83, 67, 226);
 }
 .footer-items{
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     padding: 30px;
+    color: white;
 }
 
 .footer-items h3{
     font-size: 25px;
     font-weight: 700;
+    color: white;
 }
+.payment-card{
+    width: 300px;
+     height: 160px;
+}
+@media only screen and (max-width: 688px) {
+    .footer-items{
+        grid-template-columns: repeat(1, 1fr);
+        grid-gap: 20px;
+    }
+ }
+ @media only screen and (min-width: 688px) and (max-width: 1024px) {
+    .footer-items{
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 40px;
+    }
+ }

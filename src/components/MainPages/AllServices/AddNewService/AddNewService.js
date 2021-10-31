@@ -20,17 +20,17 @@ const AddNewService = () => {
 
     return (
         <div className="service-form">
-            <h2>Add service</h2>
+            <h2 className="text-4xl font-bold text-danger">Add service</h2>
         <form onSubmit={handleSubmit(onSubmit)}>
       <input {...register("name", { required: true, maxLength: 50 })} placeholder="Service Name"/>
       <br />
-      <input {...register("description")} placeholder="Service description"/>
+      <input {...register("description", { required: true})} placeholder="Service description"/>
       <br />
-      <input type="text" {...register("url")} placeholder="image url"/>
+      <input type="text" {...register("url", { required: true })} placeholder="image url"/>
       <br />
-      <input className="submit-field" type="submit" />
+      <input className="confirm-btn submit-field" type="submit" />
     </form>
-        </div>
+            </div>
     );
 };
 

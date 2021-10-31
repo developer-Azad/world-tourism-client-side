@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
+import Hotel from '../Hotel/Hotel';
 import Service from '../Service/Service';
+import './Hotel.css';
 
 const Hotels = () => {
     const [hotels, setHotels] = useState([]);
@@ -13,12 +15,12 @@ const Hotels = () => {
     return (
         <div className="">
             <h2 className="text-4xl m-10 font-bold">Recommended Popular Hotels</h2>
-            <div className="places-container m-10">
+            <div className="hotels-container m-10">
                 {
-                    hotels.map(service => <Service
-                    key={service._id}
-                    service={service}
-                    ></Service>)
+                    hotels.map(hotel => <Hotel
+                    key={hotel._id}
+                    hotel={hotel}
+                    ></Hotel>)
                 }
             </div>
         </div>

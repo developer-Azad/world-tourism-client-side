@@ -1,5 +1,5 @@
-.input-field{
-    width: 90%;
+input{
+    width: 70%;
     border: none;
     padding: 5px 10px;
     border-radius: 5px;
@@ -12,4 +12,8 @@
     padding-top: 20px;
     padding-bottom: 20px;
     border-radius: 10px;
+}
+.submit-btn{
+    width: 20%;
+    background-color: gold;
 }

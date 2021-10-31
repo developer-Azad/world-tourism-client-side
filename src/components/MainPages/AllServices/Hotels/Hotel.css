@@ -1,17 +1,18 @@
-.places-container{
+
+.hotels-container{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 40px;
 }
 @media only screen and (max-width: 688px) {
-    .places-container{
+    .hotels-container{
         grid-template-columns: repeat(1, 1fr);
         grid-gap: 20px;
     }
  }
  @media only screen and (min-width: 688px) and (max-width: 1024px) {
-    .places-container{
-        grid-template-columns: repeat(2, 1fr);
+    .hotels-container{
+        grid-template-columns: repeat(1, 1fr);
         grid-gap: 40px;
     }
  }
