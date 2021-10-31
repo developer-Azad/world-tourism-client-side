@@ -1,13 +1,18 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faPlaneDeparture } from '@fortawesome/free-solid-svg-icons'
 import './Header.css';
 
 const Header = () => {
     const { user, logOut } = useAuth();
+    
+const element = <FontAwesomeIcon icon={faPlaneDeparture} />
     return (
             <div className="navbar">
             <div className="header-icon mx-6">
+               <Link to="/home"> <p className="text-3xl">{element} </p></Link>
                <Link to="/home"> 
                 <h3 className="text-2xl font-bold">W-Tour</h3> </Link>
             </div>

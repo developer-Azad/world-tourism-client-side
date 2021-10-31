@@ -4,7 +4,7 @@ const Hotel = ({hotel}) => {
     const {_id, name, description, url, price, rating} = hotel;
 
     const handleDetails = () => {
-        
+
     }
     return (
         <div className="col">
@@ -15,12 +15,11 @@ const Hotel = ({hotel}) => {
             <h5 className="text-2xl font-semibold">{name}</h5>
             <p className="card-text">{description}</p>
             </div>
-            <div>
-            <p className="card-text">{price}</p>
-            <p className="card-text">{rating}</p>
+            <div className="text-2xl text-warning mt-4 d-flex justify-content-around">
+            <p className="card-text ">$ {price}</p>
             </div>
           </div>
-          <div className="text-center mt-3">
+          <div className="text-center">
           <button className="booking-btn font-semibold mb-3" onClick={handleDetails}>Details</button>
           </div>
         </div>

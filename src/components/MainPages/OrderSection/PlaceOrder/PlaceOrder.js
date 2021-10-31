@@ -54,8 +54,8 @@ const PlaceOrder = () => {
             </div>
             </div>
             {/* form */}
-            <div>
-            <h2 className="text-3xl font-bold mb-3">Please Place Your Order</h2>
+            <div className="order-form my-4">
+            <h2 className="text-3xl font-bold mb-3 text-center m-4">Place Your Order</h2>
             <div>
             <form className="form mb-3" onSubmit={handleSubmit(onSubmit)}>
       <input {...register("firstName", { required: true, maxLength: 30 })} placeholder="Your name"/>
