@@ -6,13 +6,13 @@ import './MyOrders.css';
 const ManageServices = () => {
     const [orders, setOrders] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/orders')
+        fetch('https://mysterious-sands-94616.herokuapp.com/orders')
         .then(res => res.json())
         .then(data => setOrders(data))
     }, [])
 
     const handleRemove = id => {
-        const url = `http://localhost:5000/orders/${id}`;
+        const url = `https://mysterious-sands-94616.herokuapp.com/orders/${id}`;
         console.log(url);
         fetch(url, {
             method: 'DELETE'
@@ -29,7 +29,7 @@ const ManageServices = () => {
     const updatedStatus = {status: 'Approved'};
 
     const handleConfirm = id => {
-        const url = `http://localhost:5000/orders/${id}`;
+        const url = `https://mysterious-sands-94616.herokuapp.com/orders/${id}`;
         fetch(url, {
             method: 'PUT',
             headers: {

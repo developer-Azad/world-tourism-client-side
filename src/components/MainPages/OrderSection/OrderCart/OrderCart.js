@@ -7,14 +7,14 @@ const OrderCart = () => {
     const [services, setServices] = useState([]);
   console.log(services);
     useEffect( () => {
-        fetch(`http://localhost:5000/orders`)
+        fetch(`https://mysterious-sands-94616.herokuapp.com/orders`)
         .then(res => res.json())
         .then(data => setServices(data))
     }, [])
 
     const handleConfirmOrder = (e) => {
         const totalOrder = services;
-        fetch('http://localhost:5000/allOrders', {
+        fetch('https://mysterious-sands-94616.herokuapp.com/allOrders', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

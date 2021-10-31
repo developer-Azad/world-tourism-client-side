@@ -4,7 +4,7 @@ const Cart = ({service}) => {
     console.log(service);
 const handleConfirmOrder = (e) => {
     const totalOrder = service;
-    fetch('http://localhost:5000/allOrders', {
+    fetch('https://mysterious-sands-94616.herokuapp.com/allOrders', {
         method: 'POST',
         headers: {
             'content-type': 'application/json'

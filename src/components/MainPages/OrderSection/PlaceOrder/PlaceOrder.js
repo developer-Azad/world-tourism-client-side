@@ -10,14 +10,14 @@ const PlaceOrder = () => {
     console.log(orderId);
 
     useEffect( () => {
-        fetch(`http://localhost:5000/services/${orderId}`)
+        fetch(`https://mysterious-sands-94616.herokuapp.com/services/${orderId}`)
         .then(res => res.json())
         .then(data => setService(data))
     }, [])
 
 const handlePlaceOrder = (e) => {
     const processingOrder = {url, name, description, status};
-    fetch('http://localhost:5000/orders', {
+    fetch('https://mysterious-sands-94616.herokuapp.com/orders', {
         method: 'POST',
         headers: {
             'content-type': 'application/json'
