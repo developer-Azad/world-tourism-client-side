@@ -1,15 +1,37 @@
 
 import React, { useEffect, useState } from 'react';
-import OrderCart from '../OrderCart/OrderCart';
+import useAuth from '../../../../hooks/useAuth';
 import './MyOrders.css';
 
 const ManageServices = () => {
+    const {user} = useAuth();
+    const email = user.email;
     const [orders, setOrders] = useState([]);
+
+    console.log(orders);
     useEffect(() => {
         fetch('https://mysterious-sands-94616.herokuapp.com/orders')
         .then(res => res.json())
         .then(data => setOrders(data))
+        // filter();
     }, [])
+
+
+
+
+    // if(user.emil){
+    //     setOrders( orders.filter(service => service.email === email));
+        // console.log(userOrder);
+        // setOrders(userOrder);
+    // }
+    // const filter = () => {
+    //     const userOrder = orders.filter(order => order.email === email);
+        
+    
+    
+    // }
+    // filter();
+    
 
     const handleRemove = id => {
         const url = `https://mysterious-sands-94616.herokuapp.com/orders/${id}`;
@@ -50,8 +72,8 @@ const ManageServices = () => {
     
 
     return (
-        <div>
-            <h2>You choose to visit</h2>
+        <div className="mx-10">
+            <h2 className="text-4xl font-bold text-center my-6">You choose to visit</h2>
             <div className="place-order">
             <div className="orders-container">
             {
@@ -65,9 +87,6 @@ const ManageServices = () => {
                     </div>
                 </div>)
             }
-            </div>
-            <div>
-                <OrderCart></OrderCart>
             </div>
             </div>
         </div>

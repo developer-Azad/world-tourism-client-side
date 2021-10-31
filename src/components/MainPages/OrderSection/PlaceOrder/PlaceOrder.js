@@ -1,46 +1,34 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router';
+import OrderCart from '../OrderCart/OrderCart';
 
 const PlaceOrder = () => {
-    const {orderId} = useParams();
-    const [service, setService] = useState({});
-    const {url, name, description} = service;
-   const status = 'pending';
-    
-    console.log(orderId);
+    const [orders, setOrders] = useState([]);
 
-    useEffect( () => {
-        fetch(`https://mysterious-sands-94616.herokuapp.com/services/${orderId}`)
+    console.log(orders);
+    useEffect(() => {
+        fetch('https://mysterious-sands-94616.herokuapp.com/orders')
         .then(res => res.json())
-        .then(data => setService(data))
+        .then(data => setOrders(data))
     }, [])
-
-const handlePlaceOrder = (e) => {
-    const processingOrder = {url, name, description, status};
-    fetch('https://mysterious-sands-94616.herokuapp.com/orders', {
-        method: 'POST',
-        headers: {
-            'content-type': 'application/json'
-        },
-        body: JSON.stringify(processingOrder)
-    })
-    .then(res => res.json())
-    .then(data => {
-        if(data.insertedId) {
-            alert('order added successfully');
-        }
-    })
-    e.preventDefault();
-}
-
+    
 
     return (
-        <div>
-            Place Order
-            <img src={url} alt="" />
-            <h2>{name}</h2>
-            <h4>{description}</h4>
-            <button onClick={handlePlaceOrder}>Place Order</button>
+        <div className="mx-10">
+            <h2 className="text-3xl font-bold my-6">You choose to visit</h2>
+            <div className="place-order">
+            <div className="orders-container">
+            {
+                orders.map(service => <div key={service._id}>
+                    <img src={service.url} alt="" />
+                    <h3>{service.name}</h3>
+                    <p>{service.status}</p>
+                </div>)
+            }
+            </div>
+            <div>
+                <OrderCart></OrderCart>
+            </div>
+            </div>
         </div>
     );
 };

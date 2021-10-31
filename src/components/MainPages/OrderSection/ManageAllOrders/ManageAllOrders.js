@@ -1,39 +1,77 @@
 import React, { useEffect, useState } from 'react';
+import './ManageAllOrders.css';
 
 const ManageAllOrders = () => {
     const [services, setServices] = useState([]);
     useEffect( () => {
-        fetch('https://mysterious-sands-94616.herokuapp.com/services')
+        fetch('https://mysterious-sands-94616.herokuapp.com/allOrders')
         .then(res => res.json())
         .then(data => setServices(data))
     }, [])
 
-    const handleCancelOrder = id => {
-        const url = `https://mysterious-sands-94616.herokuapp.com/services/${id}`;
+    const handleRemove = id => {
+        const url = `https://mysterious-sands-94616.herokuapp.com/allOrders/${id}`;
+        console.log(url);
         fetch(url, {
             method: 'DELETE'
         })
         .then(res => res.json())
         .then(data => {
             if(data.deletedCount){
-                alert('Are you sure to cancel this order')
-            const restOrders = services.filter(service => service._id !== id);
-            setServices(restOrders);
+                alert('deleted')
+                const remaining = services.filter(service => service._id !== id);
+                setServices(remaining);
             }
         })
     }
+    const updatedStatus = {status: 'Approved'};
+
+    const handleConfirm = id => {
+        const url = `https://mysterious-sands-94616.herokuapp.com/allOrders/${id}`;
+        fetch(url, {
+            method: 'PUT',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(updatedStatus)
+        })
+        .then(res => res.json())
+        .then(data => {
+           if(data.modifiedCount > 0){
+               alert('updated Successfully');
+           }
+        })
+        const url2 = `https://mysterious-sands-94616.herokuapp.com/orders/${id}`;
+        fetch(url2, {
+            method: 'PUT',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(updatedStatus)
+        })
+        .then(res => res.json())
+        .then(data => {
+           
+        })
+
+        // id.preventDefault();
+    }
 
     return (
-        <div>
-            <h2>Manage All Orders</h2>
-            <div>
-                {
-                    services.map(service => <div
-                    key={service._id}>
-                        <h3>{service.name}</h3>
-                        <button onClick={handleCancelOrder(service._id)}>Cancel Order</button>
-                    </div>)
-                }
+        <div className="mx-10">
+            <h2 className="text-4xl font-bold my-6 text-center">Manage All Orders</h2>
+            <div className="allorders-container">
+            {
+                services.map(service => <div key={service._id}>
+                    <img src={service.url} alt="" />
+                    <h3>{service.name}</h3>
+                    <p>{service.status}</p>
+                    <div className="display-btn my-3">
+                    <button className="remove-btn" onClick={()=> handleRemove(service._id)}>Remove</button>
+                    <button className="confirm-btn" onClick={() => handleConfirm(service._id)}>Confirm</button>
+                    </div>
+                </div>)
+            }
             </div>
         </div>
     );

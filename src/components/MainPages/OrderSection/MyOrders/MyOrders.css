@@ -1,7 +1,4 @@
-.place-order{
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-}
+
 .orders-container{
     display: grid;
     grid-template-columns: repeat(3, 1fr);

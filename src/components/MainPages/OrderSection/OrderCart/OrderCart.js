@@ -1,44 +1,32 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router';
-import Cart from '../Cart/Cart';
+import { useHistory } from 'react-router';
+import './OrderCart.css';
 
 const OrderCart = () => {
-    // const {orderId} = useParams();
-    const [services, setServices] = useState([]);
-  console.log(services);
-    useEffect( () => {
-        fetch(`https://mysterious-sands-94616.herokuapp.com/orders`)
-        .then(res => res.json())
-        .then(data => setServices(data))
-    }, [])
+    const history = useHistory();
 
-    const handleConfirmOrder = (e) => {
-        const totalOrder = services;
-        fetch('https://mysterious-sands-94616.herokuapp.com/allOrders', {
-            method: 'POST',
-            headers: {
-                'content-type': 'application/json'
-            },
-            body: JSON.stringify(totalOrder)
-        })
-        .then(res => res.json())
-        .then(data => {
-            // if(data.inserted) {
-            //     alert('order added successfully');
-            // }
-        })
-        e.preventDefault();
+    const handleConfirmOrder = () => {
+        history.push('/processing')
     }
 
     return (
-        <div>
-            Place Order
-            {/* {
-                services.map(service => <Cart
-                key={service._id}
-                service = {service}
-                ></Cart>)
-            } */}
+        <div className="text-center ml-5">
+            <h2 className="text-3xl font-bold mb-3">Place Your Order</h2>
+            <div>
+            <form className="form mb-3">
+                    <input className="input-field"  type="text" name="" id=""
+                     placeholder="Your Name" required />
+                     <br /><br />
+                    <input className="input-field"  type="email" name="" id=""
+                     placeholder="Your Email" required/>
+                     <br /><br />
+                    <input className="input-field"  type="text" name="" id=""
+                     placeholder="Address" required/>
+                     <br /><br />
+                    <input className="input-field"  type="text" name="" id=""
+                     placeholder="Mobile no" required/>
+                </form>
+            </div>
               <div>
              <button className="confirm-btn" onClick={handleConfirmOrder}>Confirm Order</button>
         </div>

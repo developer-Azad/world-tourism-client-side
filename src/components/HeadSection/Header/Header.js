@@ -7,14 +7,22 @@ const Header = () => {
     const { user, logOut } = useAuth();
     return (
             <div className="navbar">
-            <div className="header-icon">
+            <div className="header-icon mx-6">
                <Link to="/home"> 
                 <h3 className="text-2xl font-bold">W-Tour</h3> </Link>
             </div>
             <div className="nav-link">
             <Link to="/home">Home</Link>
-            <Link to="/addNewService">Add Service</Link>
-            <Link to="/myorders">My Orders </Link>
+            {
+                user.email ? 
+                <div>
+                <Link to="/addNewService">Add Service</Link>
+                <Link to="/myorders">My Orders </Link> 
+                <Link to="/allorders">Manage All Orders </Link> 
+                </div>
+                : ''
+            }
+            
             </div>
             <div>
             {

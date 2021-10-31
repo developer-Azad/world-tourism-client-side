@@ -2,22 +2,21 @@ import React from 'react';
 
 const Cart = ({service}) => {
     console.log(service);
-const handleConfirmOrder = (e) => {
-    const totalOrder = service;
-    fetch('https://mysterious-sands-94616.herokuapp.com/allOrders', {
-        method: 'POST',
-        headers: {
-            'content-type': 'application/json'
-        },
-        body: JSON.stringify(totalOrder)
-    })
-    .then(res => res.json())
-    .then(data => {
-        if(data.insertedId) {
-            alert('order added successfully');
-        }
-    })
-    e.preventDefault();
+
+const handleConfirmOrder = () => {
+    const url = `https://mysterious-sands-94616.herokuapp.com/orders`;
+        console.log(url);
+        fetch(url, {
+            method: 'DELETE'
+        })
+        .then(res => res.json())
+        .then(data => {
+            if(data.deletedCount){
+                alert('deleted')
+                // const remaining = services.filter(service => service._id !== id);
+                // setServices(remaining);
+            }
+        })
 }
 
     return (
